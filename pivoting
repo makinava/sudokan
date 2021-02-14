@@ -14,3 +14,8 @@ smbclient -U aita%pass -L //localhost
 smbclient -U aita%pass  //localhost/c$
 
 
+ssh root@ip_comprometida -L 0.0.0.0:13389:ip_tercera:3389
+xfreerdp +clipboard /size:1920x1060 /u:Administrator /p:xxx /v:ip_localhost:13389
+
+rdesktop ip_localhost:13389 -u aita -p kilo
+
